@@ -1,3 +1,4 @@
+effects.confetti.startScreenEffect(500)
 music.playMelody("G G B G D G B G ", 200)
 scene.setBackgroundColor(8)
 let hero = sprites.create(img`
@@ -18,4 +19,16 @@ let hero = sprites.create(img`
     . . . f f f f f f f f f f . . . 
     . . . . f f . . . f f f . . . . 
     `, SpriteKind.Player)
+hero.setPosition(5, 102)
+tiles.setTilemap(tiles.createTilemap(hex`1400080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000001010100000000000101010100000000000101000000000001010100000000000101010100000000000000000000000000000000`, img`
+    . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . . . . . 
+    . . . . . . . . 2 2 2 . . . . . 2 2 2 2 
+    . . . . . 2 2 . . . . . 2 2 2 . . . . . 
+    2 2 2 2 . . . . . . . . . . . . . . . . 
+    `, [myTiles.transparency16,sprites.dungeon.darkGroundNorthWest0,sprites.dungeon.collectibleInsignia], TileScale.Sixteen))
+scene.cameraFollowSprite(hero)
 controller.moveSprite(hero)
