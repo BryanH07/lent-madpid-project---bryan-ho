@@ -1,10 +1,19 @@
+controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
+    if (hero.isHittingTile(CollisionDirection.Top)) {
+        hero.vy = -250
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
     game.over(false)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
+    game.over(true)
+})
+let hero: Sprite = null
 effects.confetti.startScreenEffect(500)
 music.playMelody("G G B G D G B G ", 200)
 scene.setBackgroundColor(8)
-let hero = sprites.create(img`
+hero = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . f f f f f f . . . . . 
     . . . f f e e e e f 2 f . . . . 
