@@ -1,3 +1,6 @@
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+    game.over(false)
+})
 effects.confetti.startScreenEffect(500)
 music.playMelody("G G B G D G B G ", 200)
 scene.setBackgroundColor(8)
@@ -20,7 +23,7 @@ let hero = sprites.create(img`
     . . . . f f . . . f f f . . . . 
     `, SpriteKind.Player)
 hero.setPosition(5, 102)
-tiles.setTilemap(tiles.createTilemap(hex`1400080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000003030300000000000303030300000000000303000000000003030300000000000303030302020202020202020202020202020202`, img`
+tiles.setTilemap(tiles.createTilemap(hex`1400080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000002020200000000000202020200000000000202000000000002020200000000000202020203030303030303030303030303030303`, img`
     . . . . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . . . . . 
@@ -29,6 +32,6 @@ tiles.setTilemap(tiles.createTilemap(hex`140008000000000000000000000000000000000
     . . . . . . . . 2 2 2 . . . . . 2 2 2 2 
     . . . . . 2 2 . . . . . 2 2 2 . . . . . 
     2 2 2 2 . . . . . . . . . . . . . . . . 
-    `, [myTiles.transparency16,sprites.dungeon.collectibleInsignia,sprites.dungeon.hazardLava0,sprites.castle.tilePath1], TileScale.Sixteen))
+    `, [myTiles.transparency16,sprites.dungeon.collectibleInsignia,sprites.castle.tilePath1,myTiles.tile5], TileScale.Sixteen))
 scene.cameraFollowSprite(hero)
 controller.moveSprite(hero)
