@@ -1,9 +1,9 @@
-controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
-    if (hero.isHittingTile(CollisionDirection.Top)) {
-        hero.vy = -250
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (hero.vy == 0) {
+        hero.vy = -125
     }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile5, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`tile5`, function (sprite, location) {
     game.over(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
@@ -31,16 +31,8 @@ hero = sprites.create(img`
     . . . f f f f f f f f f f . . . 
     . . . . f f . . . f f f . . . . 
     `, SpriteKind.Player)
-hero.setPosition(5, 102)
-tiles.setTilemap(tiles.createTilemap(hex`1400080000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000002020200000000000202020200000000000202000000000002020200000000000202020203030303030303030303030303030303`, img`
-    . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . . . . . 
-    . . . . . . . . 2 2 2 . . . . . 2 2 2 2 
-    . . . . . 2 2 . . . . . 2 2 2 . . . . . 
-    2 2 2 2 . . . . . . . . . . . . . . . . 
-    `, [myTiles.transparency16,sprites.dungeon.collectibleInsignia,sprites.castle.tilePath1,myTiles.tile5], TileScale.Sixteen))
+hero.setPosition(2, 111)
+tiles.setTilemap(tilemap`level1`)
 scene.cameraFollowSprite(hero)
-controller.moveSprite(hero)
+controller.moveSprite(hero, 100, 0)
+hero.ay = 300
