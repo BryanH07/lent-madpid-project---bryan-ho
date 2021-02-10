@@ -3,7 +3,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         hero.vy = -125
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`tile5`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     game.over(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
