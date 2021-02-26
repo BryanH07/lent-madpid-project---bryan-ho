@@ -3,15 +3,29 @@ namespace SpriteKind {
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     music.baDing.play()
-    game.over(true)
+    pause(500)
+    pause(2000)
+    scene.setBackgroundColor(8)
+    tiles.setTilemap(tilemap`level10`)
+    hero.setPosition(1, 13)
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (hero.vy == 0) {
         hero.vy = -125
     }
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath2, function (sprite, location) {
+    music.playMelody("C5 A B G A F G E ", 120)
+    game.over(false)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     game.over(false)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
+    music.playMelody("G B G D G G G G ", 120)
+    effects.confetti.endScreenEffect()
+    pause(1000)
+    game.over(true)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
     music.baDing.play()
