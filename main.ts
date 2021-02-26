@@ -7,7 +7,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
     pause(2000)
     scene.setBackgroundColor(8)
     tiles.setTilemap(tilemap`level10`)
-    hero.setPosition(1, 13)
+    hero.setPosition(10, 92)
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (hero.vy == 0) {
