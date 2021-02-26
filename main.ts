@@ -18,6 +18,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath2, function (sprit
     music.playMelody("C5 A B G A F G E ", 120)
     music.wawawawaa.play()
     info.changeLifeBy(-1)
+    hero.setPosition(10, 92)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     music.wawawawaa.play()
