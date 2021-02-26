@@ -16,16 +16,22 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath2, function (sprite, location) {
     music.playMelody("C5 A B G A F G E ", 120)
-    game.over(false)
+    music.wawawawaa.play()
+    info.changeLifeBy(-1)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
-    game.over(false)
+    music.wawawawaa.play()
+    info.changeLifeBy(-1)
+    hero.setPosition(10, 92)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
     music.playMelody("G B G D G G G G ", 120)
     effects.confetti.endScreenEffect()
     pause(1000)
     game.over(true)
+})
+info.onLifeZero(function () {
+    game.over(false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
     music.baDing.play()
@@ -62,3 +68,4 @@ tiles.setTilemap(tilemap`level1`)
 scene.cameraFollowSprite(hero)
 controller.moveSprite(hero, 100, 0)
 hero.ay = 300
+info.setLife(3)
